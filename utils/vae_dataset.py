@@ -1,8 +1,10 @@
 import os
-
+from PIL import Image
 import numpy as np
 import torch
+from matplotlib import pyplot as plt
 from torch.utils.data import Dataset
+from torchvision import transforms
 
 
 class VAE_Dataset(Dataset):
@@ -18,3 +20,5 @@ class VAE_Dataset(Dataset):
         obs = torch.tensor(obs, dtype=torch.float).permute(0, 3, 1, 2)
 
         return obs
+
+
