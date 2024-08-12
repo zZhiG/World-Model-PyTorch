@@ -1,4 +1,5 @@
 import os
+import shutil
 import time
 import gym
 import numpy as np
@@ -29,6 +30,9 @@ class CarRacing_Dataset_Generator:
         dataset_save_path = os.path.join(self.prefix, 'random')
         if not os.path.exists(dataset_save_path):
             os.makedirs(dataset_save_path)
+        if os.path.exists(dataset_save_path):
+            shutil.rmtree(dataset_save_path)
+            os.makedirs(dataset_save_path)
 
         print("Generating data for env {}".format(self.env_name))
 
@@ -50,10 +54,11 @@ class CarRacing_Dataset_Generator:
                 obs = adjust_obs(observation, self.img_size)
                 obs_sequence.append(obs)
 
-                ob, r, done, _ = env.step(action)
+                observation, r, done, _ = env.step(action)
+
                 if self.render:
                     env.render()  # Visualization
-                # time.sleep(2)
+                # time.sleep(1)
 
                 reward_sequence.append(r)
                 done_sequence.append(done)

@@ -30,21 +30,21 @@ def get_args():
     parser.add_argument(
         '--sample-num',
         type=int,
-        default=50
+        default=30
     )
     parser.add_argument(
         '--render',
-        default=True
+        default=False
     )
     parser.add_argument(
         '--train-vae-epoch',
         type=int,
-        default=100
+        default=10000
     )
     parser.add_argument(
         '--train-vae-batchsize',
         type=int,
-        default=16
+        default=128
     )
     parser.add_argument(
         '--train-vae-path',
@@ -58,7 +58,7 @@ def get_args():
     parser.add_argument(
         '--vae-save-interval',
         type=int,
-        default=10
+        default=1000
     )
 
     args = parser.parse_args()
