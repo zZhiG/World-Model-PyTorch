@@ -1,5 +1,7 @@
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
+
 
 class VAE(nn.Module):
     def __init__(self, dim, device):
@@ -64,4 +66,10 @@ class VAE(nn.Module):
 
         return z
 
+    def compute_loss(self, out, y, mu, logvar):
+        BCE = F.binary_cross_entropy(out, y, reduction="sum")
+        KL = -0.5 * torch.mean(1 + logvar - mu.pow(2) - logvar.exp())
+        return BCE + KL, BCE, KL
 
+    def sample(self, z):
+        return self.decoder(z)
