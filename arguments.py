@@ -44,7 +44,7 @@ def get_args():
     parser.add_argument(
         '--train-vae-batchsize',
         type=int,
-        default=128
+        default=256
     )
     parser.add_argument(
         '--train-vae-path',
