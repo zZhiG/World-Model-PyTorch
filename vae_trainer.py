@@ -42,7 +42,7 @@ def main():
     model = VAE(args.vae_latent, args.device).to(args.device)
     optimizer = optim.Adam(model.parameters(), lr=1e-3)
 
-
+    iterate_num = 0
     for e in range(args.train_vae_epoch):
         for idx, d in enumerate(dl):
             d = d.reshape(args.sample_epoch * args.sample_num, 3, *args.img_size)
@@ -56,7 +56,7 @@ def main():
                 da = da.to(args.device)
                 # print(da.shape)
                 optimizer.zero_grad()
-
+                
                 out, mu, logvar = model(da)
                 loss, bce, kl = model.compute_loss(out, da, mu, logvar)
 
@@ -66,10 +66,11 @@ def main():
                 tatal_loss.append(loss.item())
                 bce_loss.append(bce.item())
                 kl_loss.append(kl.item())
-
-                writer.add_scalar('Total Loss', loss.item(), idx*args.sample_num+_+1)
-                writer.add_scalar('BCE Loss', bce.item(), idx*args.sample_num+_+1)
-                writer.add_scalar('KL Loss', kl.item(), idx*args.sample_num+_+1)
+                
+                iterate_num += 1
+                writer.add_scalar('Total Loss', loss.item(), iterate_num)
+                writer.add_scalar('BCE Loss', bce.item(), iterate_num)
+                writer.add_scalar('KL Loss', kl.item(), iterate_num)
 
             end = time.time()
             print('epoch:{}, fps:{:.3}, \n'
