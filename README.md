@@ -6,5 +6,5 @@
 
 ## 2. Train VAE
 <div align=center>
-<img src="demo/vae_1.png" width="400px"> &ensp;&ensp;&ensp; <img src="demo/vae_2.png" width="400px">
+<img src="demo/vae_1.png" width="400px"> <img src="demo/vae_2.png" width="400px">
 </div>
