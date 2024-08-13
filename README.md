@@ -6,7 +6,9 @@ Run `generate_CarRacing_dataset.py` to randomly generate data.
 
 We generated a total of **200** trajectories, with **30** steps executed each time, resulting in a total of **6000** data. Each trajectory is saved separately as a `.npz` file.
 
-In the early stage of the car's movement, we will apply an additional speed to make it move as much as possible and collect richer data.
+Scale the observed image to a uniform size of **64 $\times$ 64**.
+
+In the early stage of the car's movement, we will apply an **additional speed** to make it move as much as possible and collect richer data.
 
 ## 2. Train VAE
 <div align=center>
