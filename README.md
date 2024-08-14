@@ -25,4 +25,4 @@ Here are some visual examples. On the left is the original image, and on the rig
 <img src="demo/vae_2.png" width="400px">
 </div>
 
-## 3. 
+## 3. To be continued...
