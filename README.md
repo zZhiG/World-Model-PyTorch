@@ -11,9 +11,7 @@ Scale the observed image to a uniform size of **64 $\times$ 64**.
 In the early stage of the car's movement, we will apply an **additional speed** to make it move as much as possible and collect richer data.
 
 ## 2. Train VAE
-Firstly, we will train the VAE network.
-
-We will train the VAE network. Its latent feature channel is **32**.
+Firstly, we will train the VAE network. Its latent feature channel is **32**.
 
 A total of **1000** epochs were trained, with a batch size of **128**. 
 
